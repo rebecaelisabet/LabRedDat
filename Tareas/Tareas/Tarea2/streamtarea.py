@@ -7,13 +7,13 @@ import pandas as pd
 
 
 # Agregar título a la página
-st.title('Test Streamlit')
+st.title('Tarea 2')
 
 # Agregar texto a la página
-st.write('Hello world')
+st.write('hola buenos días')
 
 # Agregar texto con formato Markdown a la página
-st.markdown('# Titulo\n## Otra cosa\nSolo texto')
+st.markdown('# Titulo Laboratorio\n## Otra cosa acá \n Laboratorio de Datos')
 
 # Leer datos de pinguinos como lo trabajado en el cuaderno
 data = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv')
