@@ -1,5 +1,8 @@
 [theme]
-base="dark"
-primaryColor="#9413a0"
-backgroundColor="#5e1485"
-secondaryBackgroundColor="#091898"
+primaryColor="#c39c9e"
+backgroundColor="#eae8e8"
+secondaryBackgroundColor="#98547a"
+textColor="#121212"
+font="serif"
+[deprecation]
+showPyplotGlobalUse = false
