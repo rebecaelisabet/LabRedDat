@@ -20,11 +20,11 @@ p = st.number_input("Ingrese un valor para p:", min_value=0.0, max_value=1.0, va
 n, p = validate_inputs(n, p)
 
 if n is not None and p is not None:
-    # Generate binomial distribution
+    # Generar la distribución binomial
     x = np.arange(0, n+1)
     y = binom.pmf(x, n, p)
 
-    # Plot binomial distribution
+    # Gráficar la distribución binomial
     plt.plot(x, y, '-o')
     plt.xlabel('Numero de eventos')
     plt.ylabel('Probabilidad')
