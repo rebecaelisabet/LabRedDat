@@ -1,6 +1,35 @@
 import streamlit as st
 
+#Fondo temático
+background_image = """
+<style>
+[data-testid="stAppViewContainer"] > .main {
+    background-image: url("https://i.pinimg.com/564x/39/c7/1e/39c71e43cd06601a698edc75859dd674.jpg");
+    background-size: 100vw 100vh;  # This sets the size to cover 100% of the viewport width and height
+    background-position: center;  
+    background-repeat: no-repeat;
+}
+</style>
+"""
 
+st.markdown(background_image, unsafe_allow_html=True)
+
+
+input_style = """
+<style>
+input[type="text"] {
+    background-color: transparent;
+    color: #a19eae;  // This changes the text color inside the input box
+}
+div[data-baseweb="base-input"] {
+    background-color: transparent !important;
+}
+[data-testid="stAppViewContainer"] {
+    background-color: transparent !important;
+}
+</style>
+"""
+st.markdown(input_style, unsafe_allow_html=True)
 
 #Título
 st.title('Explorando la Distribución Binomial en Lanzamientos de Monedas')
