@@ -318,6 +318,5 @@ with pestañas[2]:
 
 with pestañas[3]:
     st.header('Referencias')
-    st.write("pedo")
     st.write('Software DELSOL. (2019, junio 20). Distribución binomial. Sdelsol.com. https://www.sdelsol.com/glosario/distribucion-binomial/')
     st.write("Ortega, C. (2022, diciembre 21). Desviación estándar: Qué es, usos y cómo obtenerla. QuestionPro. https://www.questionpro.com/blog/es/desviacion-estandar/")
