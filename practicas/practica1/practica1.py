@@ -86,12 +86,12 @@ st.markdown("""
 #Más notación de latex
 st.latex(r"s=\sqrt{\dfrac{1}{n-1}\sum\limits_{n=1}^\infty (x_i-\overline{x})}")
 
-# Crear las pestañas
+# Crear las pestanias
 titulos_pestanias = ['Resumen del Proyecto', 'Procedimiento Experimental', 'Visualización de Resultados', 'Referencias']
-pestañas = st.tabs(titulos_pestanias)
+pestanias = st.tabs(titulos_pestanias)
  
-# Agregar contenido a cada pestaña
-with pestañas[0]:
+# Agregar contenido a cada pestania
+with pestanias[0]:
     st.header('Resumen del Proyecto')
 
 # Párrafo en la interfaz usando st.write()
@@ -106,7 +106,7 @@ with pestañas[0]:
     st.write("Cada sección del informe proporcionó una comprensión tanto de la distribución individual de los datos como de la distribución colectiva, permitiendo una evaluación completa de la variabilidad de los resultados y su concordancia con el modelo teórico de la distribución binomial.")
 
  
-with pestañas[1]:
+with pestanias[1]:
     
 # Procedimiento Experimental
     st.write("## Procedimiento Experimental")
@@ -144,7 +144,7 @@ with pestañas[1]:
     st.write("- Se extrajeron los valores resultantes del ajuste, así como el conteo medio de caras y su desviación estándar.")
 
  
-with pestañas[2]:
+with pestanias[2]:
     st.header('Histogramas')
 
     
@@ -316,7 +316,7 @@ with pestañas[2]:
     st.write('La desviación estándar es:', desviacion_estandar_general)
 
 
-with pestañas[3]:
+with pestanias[3]:
     st.header('Referencias')
     st.write('Software DELSOL. (2019, junio 20). Distribución binomial. Sdelsol.com. https://www.sdelsol.com/glosario/distribucion-binomial/')
     st.write("Ortega, C. (2022, diciembre 21). Desviación estándar: Qué es, usos y cómo obtenerla. QuestionPro. https://www.questionpro.com/blog/es/desviacion-estandar/")
