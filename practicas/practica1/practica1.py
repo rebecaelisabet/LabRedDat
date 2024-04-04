@@ -147,7 +147,7 @@ with pestañas[1]:
 with pestañas[2]:
     st.header('Histogramas')
 
-
+    
 ############# PRIMER PARTE, SOLO DATOS DE LA COLUMNA: LOBSANG - REBECA ########################################
 
     st.title('Gráficas de datos: Lobsang - Rebeca')
