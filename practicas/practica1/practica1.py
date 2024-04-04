@@ -5,6 +5,9 @@ from scipy import optimize as sco
 import math
 import plotly.express as px
 
+#Path
+path = "practicas/practica1/"
+
 #Fondo temático
 background_image = """
 <style>
@@ -175,7 +178,7 @@ with pestanias[2]:
     binom = np.vectorize(binom)
 
 #Utilizamos pandas para leer nuestro archivo csv
-    data = pd.read_csv('datos.csv')
+    data = pd.read_csv(path+'datos.csv')
     print(f'data:\n{data}')
 
     data = data.loc[:m_1]
@@ -264,7 +267,7 @@ with pestanias[2]:
     binom_general = np.vectorize(binom_general)
 
 #utilizamos pandas para leer el archivo csv
-    data_general = pd.read_csv('datos_generales.csv')
+    data_general = pd.read_csv(path+'datos_generales.csv')
 
     data_general = data_general.loc[:k]
 
