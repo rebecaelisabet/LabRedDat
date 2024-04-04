@@ -87,8 +87,8 @@ st.markdown("""
 st.latex(r"s=\sqrt{\dfrac{1}{n-1}\sum\limits_{n=1}^\infty (x_i-\overline{x})}")
 
 # Crear las pestañas
-titulos_pestañas = ['Resumen del Proyecto', 'Procedimiento Experimental', 'Visualización de Resultados', 'Referencias']
-pestañas = st.tabs(titulos_pestañas)
+titulos_pestanias = ['Resumen del Proyecto', 'Procedimiento Experimental', 'Visualización de Resultados', 'Referencias']
+pestañas = st.tabs(titulos_pestanias)
  
 # Agregar contenido a cada pestaña
 with pestañas[0]:
