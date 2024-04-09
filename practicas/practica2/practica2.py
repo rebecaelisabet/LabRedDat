@@ -108,10 +108,10 @@ with pestanias[2]:
 
 
 #Utilizamos pandas para leer nuestro archivo csv
-    data = pd.read_csv(path+'datos.csv')
-    print(f'data:\n{data}')
+    #data = pd.read_csv(path+'datos.csv')
+    #print(f'data:\n{data}')
 
-    data = data.loc[:m_1]
+    #data = data.loc[:m_1]
 
 
 with pestanias[3]:
