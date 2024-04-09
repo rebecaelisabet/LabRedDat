@@ -9,35 +9,112 @@ from scipy import optimize as sco
 import math
 import plotly.express as px
 import matplotlib.pyplot as plt
+import streamlit as st
+import numpy as np
+import pandas as pd
+from scipy import optimize as sco
+import math
+import plotly.express as px
 
-#Cargar el archivo csv y hacer que Pandas lea el archivo
-data = pd.read_csv('confirmados_fecha.csv')
-#print(f'data:\n{data}')
+#Path
+path = "practicas/practica1/"
+
+#Fondo temático
+background_image = """
+<style>
+[data-testid="stAppViewContainer"] > .main {
+    background-image: url("https://i.pinimg.com/564x/39/c7/1e/39c71e43cd06601a698edc75859dd674.jpg");
+    background-size: 100vw 100vh;  # This sets the size to cover 100% of the viewport width and height
+    background-position: center;  
+    background-repeat: no-repeat;
+}
+</style>
+"""
+
+st.markdown(background_image, unsafe_allow_html=True)
 
 
-#definimos una lista que será que lea scypi
-lista_fechas = []
+input_style = """
+<style>
+input[type="text"] {
+    background-color: transparent;
+    color: #a19eae;  // This changes the text color inside the input box
+}
+div[data-baseweb="base-input"] {
+    background-color: transparent !important;
+}
+[data-testid="stAppViewContainer"] {
+    background-color: transparent !important;
+}
+</style>
+"""
+st.markdown(input_style, unsafe_allow_html=True)
 
-#definimos una variable indice que será hasta que fila vamos a leer
-fila_max = 98
+#Título
+st.title('Predicción de COVID19')
 
-#convertimos el archivo csv en una lista 
-for index, row in data.iterrows():
-    if index <= fila_max:
+# Párrafos justificados
+st.markdown("""
+    <div style="text-align: justify">
+        La distribución binomial es un modelo de probabilidad discreto que indica la probabilidad de obtener uno de dos resultados posibles al realizar una serie de pruebas independientes.
+    </div>
+""", unsafe_allow_html=True)
 
-        lista_fechas.extend([row['fecha']] * row['Casos por fecha de inicio de síntomas'])
+# Lista
+st.markdown()
 
-#print(lista_fechas)     
+# Más parrafos justificados
+st.markdown("""
+    <div style="text-align: justify">
+            
+    </div>
+""", unsafe_allow_html=True)
+#Notación matemática usando latex
+st.latex(r"")
+# Más parrafos justificados
+st.markdown("""
+    <div style="text-align: justify">
+        
+    </div>
+    <br>
+    <div style="text-align: justify">
+       
+    </div>        
+""", unsafe_allow_html=True)
+#Más notación de latex
+st.latex(r"")
 
-lista_fechas=pd.DataFrame({'fecha': lista_fechas})
-fig = px.histogram(lista_fechas, x='fecha', title='Histograma de Casos covid')
-fig.update_layout(xaxis_title='Fechas', yaxis_title='Casos')
+# Crear las pestanias
+titulos_pestanias = ['Resumen del Proyecto', 'Procedimiento Experimental', 'Visualización de Resultados', 'Referencias']
+pestanias = st.tabs(titulos_pestanias)
+ 
+# Agregar contenido a cada pestania
+with pestanias[0]:
+    st.header('Resumen del Proyecto')
+
+# Párrafo en la interfaz usando st.write()
+    st.write("El informe incluyó dos partes:")
+ 
+with pestanias[1]:
+    
 
 
-#Streamlit
+ 
+with pestanias[2]:
+    st.header('Histogramas')
 
-st.title('Histograma de Casos Covid')
 
-#Histograma
+    st.title('')
 
-st.plotly_chart(fig)
+
+#Utilizamos pandas para leer nuestro archivo csv
+    data = pd.read_csv(path+'datos.csv')
+    print(f'data:\n{data}')
+
+    data = data.loc[:m_1]
+
+
+with pestanias[3]:
+    st.header('Referencias')
+    st.write('')
+
