@@ -96,8 +96,6 @@ with pestanias[1]:
  
 with pestanias[2]:
     st.header('Histogramas')
-
-
     st.title('')
 
 
