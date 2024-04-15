@@ -9,12 +9,6 @@ from scipy import optimize as sco
 import math
 import plotly.express as px
 import matplotlib.pyplot as plt
-import streamlit as st
-import numpy as np
-import pandas as pd
-from scipy import optimize as sco
-import math
-import plotly.express as px
 
 #Path
 path = "practicas/practica1/"
