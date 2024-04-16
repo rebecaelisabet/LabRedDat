@@ -1,7 +1,16 @@
+#Práctica 2
 import streamlit as st
+import numpy as np
 import pandas as pd
+from scipy import stats as sst
+from scipy import optimize as sco
+import math
+import plotly.express as px
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
+#Path
+path = "practicas/practica2/"
 # Fondo temático
 background_image = """
 <style>
@@ -173,7 +182,7 @@ Aplicaciones de la distribución de Poisson:
 
 
 # Crear las pestañas
-titulos_pestañas = ['Resumen de la Práctica', 'Procedimiento Experimental', 'Mapa de Calor']
+titulos_pestañas = ['Resumen de la Práctica', 'Procedimiento Experimental', 'Análisis de Datos']
 pestañas = st.tabs(titulos_pestañas)
  
 # Agregar contenido a cada pestaña
@@ -244,5 +253,95 @@ with pestañas[1]:
 
  
 with pestañas[2]:
-    st.header('Mapa de Calor')
-    #st.heatmap(datos.corr())
+    st.header('Análisis de Datos')
+    #File: p2.py
+
+####Titulo de Streamlit
+
+    st.title("Gráficas datos de Covid 19")
+
+
+#Cargar el archivo csv y hacer que Pandas lea el archivo
+    data = pd.read_csv(path+'confirmados_fecha_1.csv')
+
+#datos para la primera grafica, al 1 de julio
+
+    A=1000
+    u=135
+    r=35.6
+
+    x_fit = np.linspace(0, 127, 100)
+    x=data['index']
+    y=data['sintomas']
+
+#definimos la funcion que vamos a usar para el fit
+
+    def fun_gauss(x, A, u, r):
+        return A * np.exp(-((x - u) / r) ** 2 / 2)
+
+    y_fit = fun_gauss(x, A, u, r)
+
+#definimos la figura que será nuestra gráfica y le agregamos el fit
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(x=x, y=y, name='Sítnomas por día',marker=dict(
+            colorscale='Picnic',  # color
+            color=data['sintomas']
+        )))
+
+    fig.add_trace(go.Scatter(x=x_fit, y=y_fit, name='Fit', mode='lines'))
+
+
+    fig.update_layout(
+        title='Gráfico 1: Días vs Síntomas hasta 1 de Junio del 2020',
+        xaxis_title='Numero de días',
+        yaxis_title='Cantidad de casos por síntomas',
+        barmode='group'
+    )
+
+    st.plotly_chart(fig)
+
+
+
+
+#Grafica de datos hasta el 15 de marzo del 2021
+
+#recordatorio: hacer enfasis en ek recorte de datos para que se ajuste el plot
+# ponerlo en discusion de resultados
+
+
+    data2 = pd.read_csv('confirmados_fecha_3.csv')
+    A2= 900
+    u2= -32.5
+    r2= 43.5
+
+    x_fit2= np.linspace(0,274,100)
+    x2= data2['index']
+
+#definimos la nueva función
+
+
+    def funcion2_gaussiana(x2, A2, u2, r2):
+        return A2 * np.exp(-((x2 - u2) / r2) ** 2 / 2)  
+
+
+    y_fit2 = funcion2_gaussiana(x2, A2, u2, r2)
+    fig2= go.Figure()
+
+    fig2.add_trace(go.Bar(x=x2, y=data2['sintomas'],name='Síntomas por día',marker=dict(
+            colorscale='Plasma',  # Aquí puedes cambiar el esquema de colores según tu preferencia
+            color=data2['sintomas']
+        )))
+
+    fig2.add_trace(go.Trace(x=x_fit2, y=y_fit2, name='Fit'))
+    fig2.update_layout(
+        title='Gráfico 2: Días vs Síntomas hasta el 15 de Marzo del 2021 ',
+        xaxis_title='Número de días',
+        yaxis_title='Cantidad de casos por síntomas',
+        barmode='group'
+    )
+
+    st.plotly_chart(fig2)
+
+    
