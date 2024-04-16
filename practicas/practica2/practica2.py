@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 #Path
-path = "practicas/practica2/"
+#path = "practicas/practica2/"
 # Fondo temático
 background_image = """
 <style>
@@ -41,9 +41,6 @@ div[data-baseweb="base-input"] {
 </style>
 """
 st.markdown(input_style, unsafe_allow_html=True)
- 
-# Cargar algunos datos
-#datos = pd.read_csv('datos.csv')
 
 # Agrega el enlace de la fuente cursiva de Google Fonts a tu aplicación
 st.markdown(
@@ -182,12 +179,12 @@ Aplicaciones de la distribución de Poisson:
 
 
 # Crear las pestañas
-titulos_pestañas = ['Resumen de la Práctica', 'Procedimiento Experimental', 'Análisis de Datos']
+titulos_pestañas = ['Resumen de la Práctica', 'Procedimiento Experimental', 'Discución de Resultados']
 pestañas = st.tabs(titulos_pestañas)
  
 # Agregar contenido a cada pestaña
 with pestañas[0]:
-    st.header('Resume de la práctica')
+    st.header('Resumen de la práctica')
     # Texto principal del resumen
     st.write("""
     En el reporte, se aborda el desafío de predecir la evolución de los contagios por COVID-19 en Guatemala utilizando datos de los registros del Ministerio de Salud. Como epidemiólogos, nos enfrentamos a la tarea de realizar una predicción basada en datos disponibles hasta el 15 de marzo de 2021.
@@ -200,7 +197,9 @@ with pestañas[0]:
 
     El objetivo final del reporte es proporcionar una visión clara y fundamentada sobre la predicción de la evolución de los contagios por COVID-19 en Guatemala, con el fin de contribuir al diseño de estrategias de prevención y control de la enfermedad.
     """)
-    
+    st.header('Referencias')
+    st.write('Software DELSOL. (2019, junio 20). Distribución binomial. Sdelsol.com. https://www.sdelsol.com/glosario/distribucion-binomial/')
+    st.write("Coronavirus. (s/f). Paho.org. Recuperado el 16 de abril de 2024, de https://www.paho.org/es/temas/coronavirus")
 
     #st.bar_chart(datos)
  
@@ -253,16 +252,12 @@ with pestañas[1]:
 
  
 with pestañas[2]:
-    st.header('Análisis de Datos')
-    #File: p2.py
-
 ####Titulo de Streamlit
-
-    st.title("Gráficas datos de Covid 19")
+    st.header("Gráficas datos de Covid 19")
 
 
 #Cargar el archivo csv y hacer que Pandas lea el archivo
-    data = pd.read_csv(path+'confirmados_fecha_1.csv')
+    data = pd.read_csv('confirmados_fecha_1.csv')
 
 #datos para la primera grafica, al 1 de julio
 
@@ -343,5 +338,15 @@ with pestañas[2]:
     )
 
     st.plotly_chart(fig2)
+ 
+    st.subheader("Criterio de Selección de datos")
 
-    
+    st.write("Primero, se discutirá la elección de los datos y la columna que se graficó.\nSe utilizaron 2 archivos diferentes para realizar las gráficos y los ajustes correspondientes, en la primera gráfica se utilizó un archivo csv que contiene los datos desde el primer caso de síntomas (13 de Febrero del 2020) hasta el ultimo caso registrado por síntoma del dia 1 de Junio del 2020. \n\n  ")
+    st.write("En la segunda gráfica se utilizó un archivo csv que contiene los casos desde el 15 de junio del 2020  hasta datos del 15 de Marzo del 2021, la razón de utlizar el archivo de esta forma es para que no generará conflicto a la hora de que el fit jalara los datos del csv, por lo tanto son datos que estan recortados pero siguen siendo los originales.")
+    st.write("Con respecto a la columna que se utilizó como referencia para realizar las gráficas y el fit se debe decir que se escogió la columna llamada \"sintomas\" debido a la razón principal de que era la que contenia más datos desde el primer dia de registro que es el 13 de Febrero del 2020, ya que las demas columnas empezaban a tener datos desde marzo y se quería realizar una grafica con la mayor cantidad de datos posibles.   ")
+
+
+    st.subheader("Criterio de Gráficas y Fit realizado")
+
+    st.write("Con respecto a la primera gráfica (con datos de hasta el 1 de Junio del 2020) se realizó un histograma donde se ve claramente la subida de casos de manera exponencial. Se realizó un fit de la forma de una función gaussiana que cuadra perfectamente con los datos obtenidos. Con respecto a la predicción de futuros casos a partir de esa fecha con el modelo matemático propuesto, se debe aclarar que no se cumple la predicción realizada, ya que segun nuestra predicción, los datos despues del 1 de Junio del 2020, empezarian a bajar hasta llegar a cero en cuestión de unos pocos meses, pero se sabe que en realidad no fue de esa manera. Consideremos que esto se debe a que contamos con muy pocos datos y es probable que el modelo matemático propuesto no sea el indicado. ")
+    st.write("Ahora bien, con respecto a la segunda gráfica (con datos desde el 15 de Junio del 2020 hasta el 15 de Marzo del 2021) también se realizó un histograma donde se ve como los datos decienden un poco pero nunca llegan a cero, se mantienen formando pequeños \"picos\" a lo largo del tiempo. El fit se realizó con una ecuación gaussiana al igual que en la primera gráfica, y a pesar que los primeros datos coinciden con la bajada, a lo largo del eje x los datos dejan de cumplir ese fit, esta discrepancia en la medida se puede deber a que no propusimos un fit adecuado para los datos. La predicción que genera nuestro modelo matemático propuesto no se ajusta muy bien a los datos obtenidos, ya que predice que los datos tienden a cero, pero en realidad a lo largo del tiempo se obtienen diferentes picos de datos los cuales el fit no predice")

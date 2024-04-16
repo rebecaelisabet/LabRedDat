@@ -2,7 +2,7 @@
 primaryColor="#c39c9e"
 backgroundColor="#eae8e8"
 secondaryBackgroundColor="#98547a"
-textColor="#121212"
+textColor="#0C0C0C"
 font="serif"
 [deprecation]
 showPyplotGlobalUse = false
