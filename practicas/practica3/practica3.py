@@ -1,10 +1,6 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from scipy import stats as sst
-from scipy import optimize as sco
-import math
-import plotly.express as px
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
  
