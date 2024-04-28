@@ -49,7 +49,7 @@ La distribución de Poisson se caracteriza por un solo parámetro, denotado como
 """)
 
 #Notación matemática usando latex
-st.latex(r"P(X=k)")
+st.latex(r"P(x,n)=\frac{e^{-lamda}\lamda^k}{k!}")
  
 # Crear las pestañas
 titulos_pestañas = ['Entradas del Usuario', 'Visualización de Datos', 'Análisis de Datos']
